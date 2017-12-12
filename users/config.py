@@ -1,0 +1,2 @@
+SALT = 'YOUR SALT'
+KEY = 'YOUR KEY'

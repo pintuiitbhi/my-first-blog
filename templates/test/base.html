@@ -1,0 +1,52 @@
+{% load staticfiles %}
+{% load static %}
+
+<html>
+    <head>
+        <title>Pintu's Blog</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    </head>
+    <body>
+            <div class="page-header">
+                  <h1><a href="/">Pintu's Blog</a></h1>       
+            </div>
+
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col-sm-2">
+      {% block sidebar %}
+
+      <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+
+
+      <ul class="sidebar-nav">
+          {% if user.is_authenticated %}
+  Hi {{ user.username }}!
+  <li><p><a href ="{%url 'logout' %}">logout</a></p></li>
+  <li><p><a href ="{%url 'edit_profile' %}">Edit Profile</a></p></li>
+  
+{% else %}
+  <p>You are not logged in</p>
+  <li><a href="{% url 'login' %}">login</a></li>
+  <li><a href="{% url 'signup' %}">Sign Up</a></li>
+  <li><a href="{% url 'upload' %}">Upload</a></li>
+   
+{% endif %}
+
+
+
+      </ul>
+     {% endblock %}
+      </div>
+      <div class="col-sm-10 ">
+      {% block content %}{% endblock %}
+      </div>
+    </div>
+
+
+    </body>
+</html>

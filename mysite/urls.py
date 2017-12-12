@@ -16,10 +16,24 @@ Including another URLconf
 from django.conf.urls import include,url
 from django.contrib import admin
 from django.views.generic.base import TemplateView
+from django.conf import settings
+from django.conf.urls.static import static
 
+
+from django.views.generic import RedirectView
 urlpatterns = [
-    url(r'^$',TemplateView.as_view(template_name='home.html'),name='home'),
-    url(r'^admin/', admin.site.urls),
+
+   # url(r'^$',TemplateView.as_view(template_name='home.html'),name='home'),
+ url(r'^admin/', admin.site.urls),
+    url(r'^blog/', include('blog.urls')),
+    url(r'^$', RedirectView.as_view(url='/blog/')),
     url(r'^users/', include('users.urls')),
-    url(r'^users/',include('django.contrib.auth.urls')),	
+    url(r'^upload/', include('upload.urls')),
+   url(r'^feedback/',include('feedback.urls')),
+ url(r'^test/',include('test.urls')),
+    url(r'^users/',include('django.contrib.auth.urls')),   	
 ]
+
+if settings.DEBUG:
+    urlpatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+    urlpatterns+=static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)

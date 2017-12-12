@@ -1,0 +1,16 @@
+<!-- templates/registration/login.html -->
+{% extends 'base.html' %}
+
+{% block title %}Edit Profile{% endblock %}
+
+{% block content %}
+<h2>Edit Profile</h2>
+<form method="post" action='{% url 'post_list' %}' class="post-form">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit" class="save btn btn-default">Save</button>
+  <p><a href ="{%url 'password_reset' %}">Password Reset</a></p>
+</form>
+
+
+{% endblock %}

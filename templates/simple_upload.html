@@ -1,0 +1,13 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+ 
+<form method="POST" action='' enctype='multipart/form-data' class="post-form">
+{%csrf_token%}
+{{form1.as_p}}<!-- Name of variable we are passing from view -->
+<button type="submit" class="save btn btn-default"> Upload </button>
+</form>
+
+  <p><a href="{% url 'post_list' %}">Return to home</a></p>
+{% endblock %}
