@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog',
     'users',
-    'payu',
+   # 'payu',
     'upload',
     'feedback',
     'test'
@@ -86,10 +86,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-'NAME':'lrnwthfun$lrnwthfun',
-'USER':'lrnwthfun',
+'NAME':'myblog',
+'USER':'mybloguser',
 'PASSWORD':'password',
-'HOST':'lrnwthfun.mysql.pythonanywhere-services.com',
+'HOST':'localhost',
 'PORT':'',
     }
 }
