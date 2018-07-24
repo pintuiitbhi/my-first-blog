@@ -1,5 +1,5 @@
 # my-first-blog
-The website link for demonstration http://wwww.lrnwthfun.pythonanywhere.com
+The website link for demonstration http://lrnwthfun.pythonanywhere.com/blog/
 It is a blog based on Django framework
 Features of the blog:-
 1. Login and Signup System
